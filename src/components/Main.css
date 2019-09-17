@@ -1,0 +1,22 @@
+.App-main {
+  display: flex;
+  flex-direction: column;
+  margin-top: 16px;
+  padding: 0 0.7rem;
+}
+@media all and (min-width: 480px) {
+  .App-main {
+    padding: 0 2.75rem;
+  }
+}
+.content {
+  text-align: left;
+}
+
+.content__main {
+  margin: 16px 0;
+  padding: 20px 24px;
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
