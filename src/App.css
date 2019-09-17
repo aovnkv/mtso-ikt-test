@@ -1,6 +1,27 @@
+* {
+  box-sizing: border-box;
+}
+
+div,
+ul,
+li,
+p,
+.btn {
+  padding: 0;
+  margin: 0;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
 .App {
+  position: relative;
+  height: 100vh;
   text-align: center;
   background: #eceef2;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: #000;
 }
 
 .App-logo {
@@ -10,18 +31,98 @@
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  position: sticky;
+  left: 0;
+  top: 0;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  height: 70px;
+  width: 100%;
+  background: white;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08);
+  padding: 0 0.7rem;
+  overflow: hidden;
+}
+@media all and (min-width: 480px) {
+  .App-header {
+    padding: 0 2.75rem;
+  }
+}
+.nav {
+  position: relative;
+  display: flex;
+  align-items: center;
+  color: rgba(0, 0, 0, 0.25);
 }
 
-.App-link {
-  color: #61dafb;
+.nav > * {
+  margin-right: 1.6rem;
+}
+
+.nav-link:hover {
+  color: rgba(0, 0, 0, 0.8);
+}
+.nav-link.active {
+  color: rgba(0, 0, 0, 0.8);
+}
+.btn {
+  position: relative;
+  display: inline-block;
+  overflow: visible;
+  user-select: none;
+  text-align: center;
+  white-space: nowrap;
+  cursor: pointer;
+  padding: 0 10px;
+  border: 0;
+  outline: 0;
+  font-family: inherit;
+  font-size: 14px;
+}
+
+.btn::before {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  content: '';
+  background-color: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
+
+.btn:hover::before {
+  border-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.025);
+}
+
+.btn-login {
+  height: 32px;
+  line-height: 32px;
+}
+
+.App-main {
+  display: flex;
+  flex-direction: column;
+  margin-top: 16px;
+  padding: 0 0.7rem;
+}
+@media all and (min-width: 480px) {
+  .App-main {
+    padding: 0 2.75rem;
+  }
+}
+.content {
+  text-align: left;
+}
+
+.content__main {
+  margin: 16px 0;
+  padding: 20px 24px;
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
 }
 
 @keyframes App-logo-spin {
