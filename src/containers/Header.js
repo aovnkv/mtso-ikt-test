@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
+//import { connect } from 'react-redux';
+//import { withRouter } from 'react-router-dom';
 import './Header.css';
 
 class Header extends Component {
@@ -8,11 +10,9 @@ class Header extends Component {
       <div className="App-header">
         <nav className="nav">
           <div className="nav-item">
-            <button className="btn btn-login">
-              <NavLink to="/login" className="btn-link">
-                Войти
-              </NavLink>
-            </button>
+            <NavLink to="/login" className="btn-link" activeClassName="active">
+              <button className="btn btn-login">Войти</button>
+            </NavLink>
           </div>
           <div className="nav-item">
             <NavLink
@@ -34,4 +34,5 @@ class Header extends Component {
   }
 }
 
+//export default withRouter(connect()(Header));
 export default Header;

@@ -1,22 +1,35 @@
 .form-login {
   width: 300px;
-  padding: 20px 24px 36px;
+  padding: 20px 24px 26px;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 3px;
+  background-color: rgba(0, 0, 0, 0.01);
 }
 
 .form-login__input {
   display: flex;
   flex-direction: column;
-}
-
-.form-login__input:first-child {
   margin-bottom: 10px;
 }
 
-.form-login__input input {
+.form-login input {
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 3px;
   height: 32px;
   margin-top: 5px;
+}
+
+.form-login input[type='submit'] {
+  height: auto;
+  padding: 10px 14px;
+
+  font-size: 14px;
+  line-height: 14px;
+
+  cursor: pointer;
+}
+
+.form-login input[type='submit']:hover {
+  border-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.025);
 }

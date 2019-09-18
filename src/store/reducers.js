@@ -1,14 +1,8 @@
-const initialState = {
-    data: [],
-    isFetching: false,
-    error: undefined
-};
+import { combineReducers } from 'redux';
+import userLogin from './reducers/userLogin';
+import news from './reducers/news';
+import userInfo from './reducers/userInfo';
 
-function reduce(state = initialState, action) {
-    switch (action.type) {
-        default:
-            return state;
-    }
-}
+const rootReducer = combineReducers({ userLogin, news, userInfo });
 
-export default reduce;
+export default rootReducer;

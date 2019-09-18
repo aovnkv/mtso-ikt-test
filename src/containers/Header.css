@@ -60,7 +60,8 @@
   border-radius: 3px;
 }
 
-.btn:hover::before {
+.btn:hover::before,
+.btn-link.active .btn::before {
   border-color: rgba(0, 0, 0, 0.7);
   background-color: rgba(0, 0, 0, 0.025);
 }

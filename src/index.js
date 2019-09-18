@@ -1,19 +1,20 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import { createLogger } from 'redux-logger';
 import './index.css';
 import App from './App';
 
-import reduce from './store/reducers';
+import rootReducer from './store/reducers';
 
 const logger = createLogger();
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
 const store = createStore(
-  //     // combineReducers({ reduce }),
-  reduce,
-  applyMiddleware(thunk, logger)
+  rootReducer,
+  composeEnhancers(applyMiddleware(thunk, logger))
 );
 
 render(
