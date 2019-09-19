@@ -5,7 +5,7 @@ import {
 } from '../actions';
 
 const initialState = {
-  loggedUserID: null,
+  userID: undefined,
   isFetching: false,
   error: null
 };
@@ -17,7 +17,7 @@ const userLogin = (state = initialState, action) => {
     case USER_LOGIN_FAILURE:
       return { ...state, isFetching: false, error: action.err };
     case USER_LOGIN_SUCCESS:
-      return { ...state, isFetching: false, loggedUserID: action.id };
+      return { ...state, isFetching: false, userID: action.id };
     default:
       return state;
   }

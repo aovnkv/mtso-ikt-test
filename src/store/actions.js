@@ -8,17 +8,16 @@ export const loginUser = (loginData) => dispatch => {
   dispatch({ type: USER_LOGIN_REQUEST });
 
   signUp(loginData).then(res => {
-    if (res.status === 'ok') {
-      dispatch((id = res.data.id) => ({ type: USER_LOGIN_SUCCESS, id }));
-    } else if (res.status === 'err') {
-      console.log('User Login Failed:', res.message);
-      dispatch(err => ({ type: USER_LOGIN_FAILURE, err }));
+    if (res.data.status === 'ok') {
+      dispatch({ type: USER_LOGIN_SUCCESS, id: res.data.data.id });
+    } else if (res.data.status === 'err') {
+      console.log('User Login Failed:', res.data.message);
+      dispatch({ type: USER_LOGIN_FAILURE, err: res.data.message });
     }
   })
   .catch (err => {
-    console.log('User Login Failed:', err);
-    dispatch(err => ({ type: USER_LOGIN_FAILURE, err }));
-  }
+    dispatch({ type: USER_LOGIN_FAILURE, err });
+  })
 
 };
 
