@@ -1,26 +1,26 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
-//import * as actions from '../store/actions';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import './Header.css';
 
 class Header extends Component {
 
+
   render() {
-    const { isUserLoggedIn } = this.props.userLogin.userID;
+    const { userID } = this.props;
     return (
       <div className="App-header">
         <nav className="nav">
           <div className="nav-item">
             <NavLink to="/login" className="btn-link" activeClassName="active">
-              <button className="btn btn-login">{ isUserLoggedIn ? 'Выйти' : 'Войти' }</button>
+              <button className="btn btn-login">{ userID ? 'Выйти' : 'Войти' }</button>
             </NavLink>
           </div>
-          <div className="nav-item">
+          <div style={ userID ? {} : {'display': 'none' }} className="nav-item">
             <NavLink
               to="/profile"
-              className={ isUserLoggedIn ? 'nav-link' : 'nav-link inactive' }
+              className="nav-link"
               activeClassName="active"
             >
               Профиль
@@ -38,8 +38,9 @@ class Header extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return state;
+  const { userID } = state.userLogin;
+  return { userID };
 };
 
 export default withRouter(connect(mapStateToProps)(Header));
-//export default Header;
+
