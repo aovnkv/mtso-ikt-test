@@ -4,19 +4,18 @@ export const USER_LOGIN_REQUEST = 'USER_LOGIN_REQUEST';
 export const USER_LOGIN_FAILURE = 'USER_LOGIN_FAILURE';
 export const USER_LOGIN_SUCCESS = 'USER_LOGIN_SUCCESS';
 
-export const loginUser = async ( loginData) => dispatch => {
+export const loginUser = (loginData) => dispatch => {
   dispatch({ type: USER_LOGIN_REQUEST });
 
-  try {
-  const response = await signUp(loginData);
-    if (response.status === 'ok') {
-      dispatch((id = response.data.id) => ({ type: USER_LOGIN_SUCCESS, id }));
-    } else if (response.status === 'err') {
-      console.log('User Login Failed:', json.message);
+  signUp(loginData).then(res => {
+    if (res.status === 'ok') {
+      dispatch((id = res.data.id) => ({ type: USER_LOGIN_SUCCESS, id }));
+    } else if (res.status === 'err') {
+      console.log('User Login Failed:', res.message);
       dispatch(err => ({ type: USER_LOGIN_FAILURE, err }));
     }
-  }
-  catch (err) {
+  })
+  .catch (err => {
     console.log('User Login Failed:', err);
     dispatch(err => ({ type: USER_LOGIN_FAILURE, err }));
   }
