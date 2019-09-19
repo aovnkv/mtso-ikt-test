@@ -3,11 +3,11 @@ const initialState = {
   isFetching: false,
   error: null
 };
-const userInfo = (state = initialState, action) => {
+const userProfileReducer = (state = initialState, action) => {
   switch (action.type) {
     default:
       return state;
   }
 };
 
-export default userInfo;
+export default userProfileReducer;

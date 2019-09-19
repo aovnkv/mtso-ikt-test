@@ -10,7 +10,7 @@ const initialState = {
   error: null
 };
 
-const userLogin = (state = initialState, action) => {
+const loginReducer = (state = initialState, action) => {
   switch (action.type) {
     case USER_LOGIN_REQUEST:
       return { ...state, isFetching: true };
@@ -23,4 +23,4 @@ const userLogin = (state = initialState, action) => {
   }
 };
 
-export default userLogin;
+export default loginReducer;

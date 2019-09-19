@@ -6,7 +6,7 @@ export const USER_LOGIN_SUCCESS = 'USER_LOGIN_SUCCESS';
 
 export const loginUser = (loginData) => dispatch => {
   dispatch({ type: USER_LOGIN_REQUEST });
-
+  console.log(loginData);
   signUp(loginData).then(res => {
     if (res.data.status === 'ok') {
       dispatch({ type: USER_LOGIN_SUCCESS, id: res.data.data.id });
@@ -18,8 +18,17 @@ export const loginUser = (loginData) => dispatch => {
   .catch (err => {
     dispatch({ type: USER_LOGIN_FAILURE, err });
   })
-
 };
+
+// export const RESET_STORE_IF_NOT_LOGGED_IN = 'RESET_STORE_IF_NOT_LOGGED_IN';
+
+// export const tryResetStore = () => dispatch => dispatch({ type: RESET_STORE_IF_NOT_LOGGED_IN });
+
+
+
+
+
+
 
 export const GET_USER_PROFILE_REQUEST = 'GET_USER_PROFILE_REQUEST';
 export const GET_USER_PROFILE_FAILURE = 'GET_USER_PROFILE_FAILURE';

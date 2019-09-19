@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Route } from 'react-router';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { loginUser } from '../store/actions';
 import LoginForm from '../components/LoginForm';
 import Profile from '../components/Profile';
 import News from '../components/News';
@@ -10,7 +9,9 @@ import './Main.css';
 
 class Main extends Component {
 
-  onFormSubmit = () => loginUser();
+  componentDidMount() {
+
+  }
 
   render() {
     return (
@@ -24,7 +25,7 @@ class Main extends Component {
             </div>
           )}
         />
-        <Route path="/login" render={ () => <LoginForm onSubmit={this.onFormSubmit}/>} />
+        <Route path="/login" component={LoginForm} />
         <Route path="/profile" component={Profile} />
         <Route path="/news" component={News} />
 
@@ -32,6 +33,9 @@ class Main extends Component {
     );
   }
 };
-const mapStateToProps = (state) => state;
 
-export default withRouter(connect(mapStateToProps)(Main));
+//const mapStateToProps = ( {userLoginReducer} ) => userLoginReducer;
+//const mapStateToProps = ( state ) => state;
+const mapDispatchToProps = ( dispatch ) => dispatch;
+
+export default withRouter(connect(mapDispatchToProps)(Main));

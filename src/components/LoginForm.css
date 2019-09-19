@@ -19,7 +19,7 @@
   margin-top: 5px;
 }
 
-.form-login input[type='submit'] {
+.form-login button[type='submit'] {
   height: auto;
   padding: 10px 14px;
 
@@ -29,7 +29,7 @@
   cursor: pointer;
 }
 
-.form-login input[type='submit']:hover {
+.form-login button[type='submit']:hover {
   border-color: rgba(0, 0, 0, 0.8);
   background-color: rgba(0, 0, 0, 0.025);
 }

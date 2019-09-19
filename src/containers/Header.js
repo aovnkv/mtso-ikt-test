@@ -38,7 +38,7 @@ class Header extends Component {
 }
 
 const mapStateToProps = (state) => {
-  const { userID } = state.userLogin;
+  const { userID } = state.loginReducer;
   return { userID };
 };
 

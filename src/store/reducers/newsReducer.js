@@ -4,11 +4,11 @@ const initialState = {
   error: null
 };
 
-const news = (state = initialState, action) => {
+const newsReducer = (state = initialState, action) => {
   switch (action.type) {
     default:
       return state;
   }
 };
 
-export default news;
+export default newsReducer;

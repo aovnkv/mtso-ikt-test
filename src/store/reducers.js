@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import userLogin from './reducers/LoginFormReducer';
-import news from './reducers/news';
-import userInfo from './reducers/userInfo';
+import loginReducer from './reducers/loginReducer';
+import newsReducer from './reducers/newsReducer';
+import userProfileReducer from './reducers/userProfileReducer';
 
-const rootReducer = combineReducers({ userLogin, news, userInfo });
+const rootReducer = combineReducers({ loginReducer, newsReducer, userProfileReducer });
 
 export default rootReducer;
