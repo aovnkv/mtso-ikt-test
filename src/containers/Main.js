@@ -1,8 +1,8 @@
 import React from 'react';
 import { Route } from 'react-router';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
-import LoginForm from './LoginForm';
+// import { withRouter } from 'react-router-dom';
+import LoginForm from '../components/LoginForm';
 import './Main.css';
 
 const Main = () => (
@@ -20,4 +20,5 @@ const Main = () => (
   </main>
 );
 
-export default withRouter(connect()(Main));
+export default connect()(Main);
+// export default withRouter(connect()(Main));

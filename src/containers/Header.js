@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
+import * as actions from '../store/actions';
 //import { connect } from 'react-redux';
 //import { withRouter } from 'react-router-dom';
 import './Header.css';
