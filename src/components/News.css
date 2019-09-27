@@ -1,0 +1,10 @@
+.content__main.news {
+  background: rgba(0, 0, 0, 0.01);
+}
+.news h2 {
+  font-size: 1.1em;
+}
+.news p {
+  background: white;
+  padding: 1em;
+}

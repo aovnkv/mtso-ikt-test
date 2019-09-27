@@ -1,30 +1,37 @@
-import React, { Component } from 'react';
+import React, { useContext } from 'react';
+import { UserContext } from '../App';
 import { NavLink } from 'react-router-dom';
-import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import './Header.css';
 
-class Header extends Component {
+const Header = () => {
 
+    const userID = useContext(UserContext);
 
-  render() {
-    const { userID } = this.props;
+    let logInOutButton = userID
+      ?
+      <NavLink to="/logout" className="btn-link" activeClassName="active">
+        <button className="btn btn-logout">Выйти</button>
+      </NavLink>
+      :
+      <NavLink to="/login" className="btn-link" activeClassName="active">
+        <button className="btn btn-login">Войти</button>
+      </NavLink>
+      ;
+
+    let profile = userID &&
+      <NavLink to="/profile" className="nav-link" activeClassName="active">
+        Профиль
+      </NavLink>
+
     return (
       <div className="App-header">
         <nav className="nav">
           <div className="nav-item">
-            <NavLink to="/login" className="btn-link" activeClassName="active">
-              <button className="btn btn-login">{ userID ? 'Выйти' : 'Войти' }</button>
-            </NavLink>
+            { logInOutButton }
           </div>
-          <div style={ userID ? {} : {'display': 'none' }} className="nav-item">
-            <NavLink
-              to="/profile"
-              className="nav-link"
-              activeClassName="active"
-            >
-              Профиль
-            </NavLink>
+          <div className="nav-item">
+            { profile }
           </div>
           <div className="nav-item">
             <NavLink to="/news" className="nav-link" activeClassName="active">
@@ -34,13 +41,7 @@ class Header extends Component {
         </nav>
       </div>
     );
-  }
 }
 
-const mapStateToProps = (state) => {
-  const { userID } = state.loginReducer;
-  return { userID };
-};
-
-export default withRouter(connect(mapStateToProps)(Header));
+export default withRouter(Header);
 

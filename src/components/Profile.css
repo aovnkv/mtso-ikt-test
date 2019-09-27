@@ -1,0 +1,49 @@
+p,
+ul {
+  margin-bottom: 24px;
+}
+
+li {
+  position: relative;
+  margin: 4px 0;
+}
+
+h2 {
+  margin-bottom: 8px;
+}
+.socials {
+  display: flex;
+  flex-direction: column;
+}
+
+.web {
+  order: -1;
+}
+
+.socials a::before {
+  content: '';
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 24px;
+  height: 24px;
+}
+.web a::before {
+  background-image: url(/world.png);
+}
+.twitch a::before {
+  background-image: url(/twitch.png);
+}
+.vk a::before {
+  background-image: url(/vk.png);
+}
+.youtube a::before {
+  background-image: url(/yotube.png);
+}
+.telegram a::before {
+  background-image: url(/telegram.png);
+}
+.twitter a::before {
+  background-image: url(/twitter.png);
+}
