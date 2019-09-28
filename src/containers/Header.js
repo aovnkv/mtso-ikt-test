@@ -1,10 +1,11 @@
 import React, { useContext } from 'react';
+import { connect } from 'react-redux';
 import { UserContext } from '../App';
 import { NavLink } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
 import './Header.css';
 
-const Header = () => {
+const Header = ({isFetching}) => {
 
     const userID = useContext(UserContext);
 
@@ -15,7 +16,7 @@ const Header = () => {
       </NavLink>
       :
       <NavLink to="/login" className="btn-link" activeClassName="active">
-        <button className="btn btn-login">Войти</button>
+        <button className="btn btn-login" disabled={isFetching}>Войти</button>
       </NavLink>
       ;
 
@@ -43,5 +44,6 @@ const Header = () => {
     );
 }
 
-export default withRouter(Header);
+const mapStateToProps = ({ loginReducer }) => loginReducer;
+export default withRouter(connect(mapStateToProps)(Header));
 

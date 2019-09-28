@@ -1,8 +1,7 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useCallback, useContext } from 'react';
 import { connect } from 'react-redux';
 import { UserContext } from '../App';
 import { authenticateUser } from '../store/actions';
-import Spinner from './Spinner';
 import './LoginForm.css';
 
 
@@ -12,12 +11,7 @@ const LoginForm = ({ isFetching, error, authenticateUser }) => {
   const handleChange = e => setFormValues({ ...formValues, [e.target.name]: e.target.value })
   const userID = useContext(UserContext);
 
-  useEffect(() => {
-    if (error === 'wrong_email_or_password') setFormValues({...formValues, password: ''});
-  }, [formValues])
-
   if (userID) return <div className="content"><h1>Вы уже вошли на сайт как {userID}</h1></div>;
-  if (isFetching) return <Spinner></Spinner>
 
   return (
     <div className="content">
