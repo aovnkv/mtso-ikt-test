@@ -29,11 +29,11 @@ const LoginForm = ({ isFetching, error, authenticateUser }) => {
         }
       }}>
         <div>
-          <input onChange={ handleChange } type="email" name="email" required></input>
+          <input onChange={ handleChange } id="email" type="email" name="email" required></input>
           <label htmlFor="email">Эл. почта</label>
         </div>
         <div>
-          <input onChange={ handleChange } type="password" name="password" required></input>
+          <input onChange={ handleChange } id="password" type="password" name="password" required></input>
           <label htmlFor="password">Пароль</label>
         </div>
         <button type="submit">Войти</button>
