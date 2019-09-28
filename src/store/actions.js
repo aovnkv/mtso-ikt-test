@@ -7,20 +7,21 @@ export const USER_LOGIN_FAILURE = 'USER_LOGIN_FAILURE';
 export const USER_LOGIN_SUCCESS = 'USER_LOGIN_SUCCESS';
 export const USER_LOGOUT_SUCCESS = 'USER_LOGOUT_SUCCESS';
 
-export const authenticateUser = loginData => dispatch => {
+export const authenticateUser = loginData => async dispatch => {
   dispatch({ type: USER_LOGIN_REQUEST });
-
-  validate(loginData).then(res => {
+  try {
+    const res = await validate(loginData);
     if (res.data.status === 'ok') {
       dispatch({ type: USER_LOGIN_SUCCESS, id: res.data.data.id });
       history.push('/profile');
     } else if (res.data.status === 'err') {
       dispatch({ type: USER_LOGIN_FAILURE, err: res.data.message });
+      throw new Error(res.data.message);
     }
-  })
-  .catch (err => {
-    dispatch({ type: USER_LOGIN_FAILURE, err });
-  })
+  } catch (err) {
+      dispatch({ type: USER_LOGIN_FAILURE, err: "Сервер недоступен" });
+      throw new Error(err);
+  }
 };
 
 export const logoutUser = () => dispatch => {

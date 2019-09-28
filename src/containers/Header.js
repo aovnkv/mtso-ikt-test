@@ -1,8 +1,7 @@
 import React, { useContext } from 'react';
 import { connect } from 'react-redux';
 import { UserContext } from '../App';
-import { NavLink } from 'react-router-dom';
-import { withRouter } from 'react-router-dom';
+import { NavLink, withRouter } from 'react-router-dom';
 import './Header.css';
 
 const Header = ({isFetching}) => {

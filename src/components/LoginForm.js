@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import { connect } from 'react-redux';
 import { UserContext } from '../App';
 import { authenticateUser } from '../store/actions';
@@ -16,9 +16,17 @@ const LoginForm = ({ isFetching, error, authenticateUser }) => {
   return (
     <div className="content">
       <h1 className="content__header">Вход на сайт:</h1>
-      <form onSubmit={(e) => {
+      <form onSubmit={ async (e) => {
         e.preventDefault();
-        authenticateUser(formValues);
+        try {
+          await authenticateUser(formValues);
+        } catch (error) {
+          if (error.message === 'Error: wrong_email_or_password') {
+            setFormValues({...formValues, password: ''});
+          } else {
+            console.log(error.message);
+          }
+        }
       }}>
         <div>
           <input onChange={ handleChange } type="email" name="email" required></input>
