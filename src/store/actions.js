@@ -12,10 +12,8 @@ export const authenticateUser = loginData => dispatch => {
 
   validate(loginData).then(res => {
     if (res.data.status === 'ok') {
-      setTimeout(() => {
-        dispatch({ type: USER_LOGIN_SUCCESS, id: res.data.data.id });
-        history.push('/profile');
-      }, 500)
+      dispatch({ type: USER_LOGIN_SUCCESS, id: res.data.data.id });
+      history.push('/profile');
     } else if (res.data.status === 'err') {
       dispatch({ type: USER_LOGIN_FAILURE, err: res.data.message });
     }
@@ -41,9 +39,7 @@ export const getUserProfile = id => dispatch => {
 
   getUserInfo(id).then(res => {
     if (res.data.status === 'ok') {
-      setTimeout(() => {
-        dispatch({ type: GET_USER_PROFILE_SUCCESS, userData: res.data.data});
-      }, 500)
+      dispatch({ type: GET_USER_PROFILE_SUCCESS, userData: res.data.data});
     } else if (res.data.status === 'err') {
       dispatch({ type: GET_USER_PROFILE_FAILURE, err: res.data.message });
     }
@@ -64,9 +60,7 @@ export const getNews = () => dispatch => {
 
   fetchNews().then(res => {
     if (res.data.status === 'ok') {
-      setTimeout(() => {
-        dispatch({ type: GET_NEWS_SUCCESS, newsData: res.data.data});
-      }, 500);
+      dispatch({ type: GET_NEWS_SUCCESS, newsData: res.data.data});
     } else if (res.data.status === 'err') {
       dispatch({ type: GET_NEWS_FAILURE, err: res.data.message });
     }

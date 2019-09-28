@@ -20,9 +20,11 @@ const Header = () => {
       ;
 
     let profile = userID &&
+    <div className="nav-item">
       <NavLink to="/profile" className="nav-link" activeClassName="active">
         Профиль
       </NavLink>
+    </div>
 
     return (
       <div className="App-header">
@@ -30,9 +32,7 @@ const Header = () => {
           <div className="nav-item">
             { logInOutButton }
           </div>
-          <div className="nav-item">
             { profile }
-          </div>
           <div className="nav-item">
             <NavLink to="/news" className="nav-link" activeClassName="active">
               Новости
