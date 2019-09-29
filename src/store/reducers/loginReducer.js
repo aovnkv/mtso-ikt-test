@@ -7,18 +7,18 @@ import {
 
 const initialState = {
   userID: undefined,
-  isFetching: false,
+  isSubmitting: false,
   error: null
 };
 
 const loginReducer = (state = initialState, action) => {
   switch (action.type) {
     case USER_LOGIN_REQUEST:
-      return { ...state, isFetching: true };
+      return { ...state, isSubmitting: true };
     case USER_LOGIN_FAILURE:
-      return { ...state, isFetching: false, error: action.err };
+      return { ...state, isSubmitting: false, error: action.err };
     case USER_LOGIN_SUCCESS:
-      return { error: null, isFetching: false, userID: action.id };
+      return { error: null, isSubmitting: false, userID: action.id };
     case USER_LOGOUT_SUCCESS:
       return { ...initialState };
     default:

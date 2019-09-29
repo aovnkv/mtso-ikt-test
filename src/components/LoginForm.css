@@ -27,12 +27,17 @@ form label {
 }
 
 form input:focus + label,
-form input:valid + label {
+form input:valid + label,
+form input:invalid + label {
   opacity: 0;
 }
 
 form input:valid {
   background: #d0fad0;
+}
+
+form input:focus:invalid {
+  background: #ffaeae;
 }
 
 form button[type='submit'] {

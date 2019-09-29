@@ -16,7 +16,7 @@ export const authenticateUser = loginData => async dispatch => {
       history.push('/profile');
     } else if (res.data.status === 'err') {
       dispatch({ type: USER_LOGIN_FAILURE, err: res.data.message });
-      throw new Error(res.data.message);
+      return res.data.message;
     }
   } catch (err) {
       dispatch({ type: USER_LOGIN_FAILURE, err: "Сервер недоступен" });

@@ -4,7 +4,7 @@ import { UserContext } from '../App';
 import { NavLink, withRouter } from 'react-router-dom';
 import './Header.css';
 
-const Header = ({isFetching}) => {
+const Header = ({isSubmitting}) => {
 
     const userID = useContext(UserContext);
 
@@ -15,7 +15,7 @@ const Header = ({isFetching}) => {
       </NavLink>
       :
       <NavLink to="/login" className="btn-link" activeClassName="active">
-        <button className="btn btn-login" disabled={isFetching}>Войти</button>
+        <button className="btn btn-login" disabled={isSubmitting}>Войти</button>
       </NavLink>
       ;
 
