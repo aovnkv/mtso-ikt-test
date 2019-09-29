@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/mtso-ikt-test/static/css/main.63de5db6.chunk.css",
+    "main.js": "/mtso-ikt-test/static/js/main.e740beb7.chunk.js",
+    "main.js.map": "/mtso-ikt-test/static/js/main.e740beb7.chunk.js.map",
+    "runtime~main.js": "/mtso-ikt-test/static/js/runtime~main.42df3c8f.js",
+    "runtime~main.js.map": "/mtso-ikt-test/static/js/runtime~main.42df3c8f.js.map",
+    "static/css/2.c5b05437.chunk.css": "/mtso-ikt-test/static/css/2.c5b05437.chunk.css",
+    "static/js/2.b819d0dd.chunk.js": "/mtso-ikt-test/static/js/2.b819d0dd.chunk.js",
+    "static/js/2.b819d0dd.chunk.js.map": "/mtso-ikt-test/static/js/2.b819d0dd.chunk.js.map",
+    "index.html": "/mtso-ikt-test/index.html",
+    "precache-manifest.804c055d6f0530b974badaf89da7967f.js": "/mtso-ikt-test/precache-manifest.804c055d6f0530b974badaf89da7967f.js",
+    "service-worker.js": "/mtso-ikt-test/service-worker.js",
+    "static/css/2.c5b05437.chunk.css.map": "/mtso-ikt-test/static/css/2.c5b05437.chunk.css.map",
+    "static/css/main.63de5db6.chunk.css.map": "/mtso-ikt-test/static/css/main.63de5db6.chunk.css.map"
+  }
+}
